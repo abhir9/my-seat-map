@@ -1,0 +1,13 @@
+.booked{
+	background-color:gray;
+	}
+.notbooked{
+	background-color:white;
+	border: 1px solid black;
+}
+.noshow{
+	border: 0;
+}
+.select{
+	background-color:green;
+}

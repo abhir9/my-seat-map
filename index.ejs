@@ -1,0 +1,23 @@
+<head>
+<link rel="stylesheet" href="./style.css">
+</head>
+<table style="width: 80%; height: 254px; margin-left: auto; margin-right: auto;" cellspacing="1" cellpadding="1">
+<tbody>
+<%var SeatName=SeatNo=0; for(var i=0; i < seatmap.height; i++) { %>
+   <tr>
+   <% for(var j=0; j < seatmap.width; j++) {
+   var classname=seatmap.booked.indexOf(parseInt(i+''+j))>-1?'booked':(seatmap.notshow.indexOf(parseInt(i+''+j))>-1)?'noshow':'notbooked';  
+   var fieldName=classname!=='noshow'?String.fromCharCode(SeatName+65)+''+SeatNo++:'';
+   %>
+     <td style="text-align:center" id="<%=fieldName%>"onclick='selectDeselect(this)' class=<%=classname%>><%=fieldName%></td>
+     <% }SeatName++; %>
+   </tr>
+<% } %>
+</tbody>
+</table>
+<script>
+function selectDeselect(el){
+if(el.classList.contains('notbooked'))
+     el.classList.toggle('select');
+	 }
+</script>
